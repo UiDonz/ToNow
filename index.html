@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name = "viewpoint" content="width=device-width, inital-scale=1.0">
+        <title>ToNow</title>
+        <link rel="stylesheet" href="style.css">
+        <script src = "script.js" defer></script>
+    </head>
+    <body>
+        <header>
+            <h1>To-Do & Focus Timer</h1>
+        </header>
+        <main>
+            <section id="add-section" aria-labelledby="add-heading">
+   <h2 id="add-heading">Add a task</h2>
+            <form id="add-form" novalidate>
+                <label for="new-title" class="visually-hidden">Task title</label>
+                <input type="text" id="new-title" placeholder="What needs doing?" autocomplete="off">
+                <label for="new-importance" class="visually-hidden">Importance</label>
+                <select id="new-importance">
+                    <option value="Low" selected>Low</option>
+                    <option value="Medium">Medium</option>
+                    <option value="High">High</option>
+                </select>
+                <button type="submit">Add</button>
+            </form>
+            <p id="add-error" class="error" role="alert"></p>
+        </section>
+
+        <section id="timer-section" aria-labelledby="timer-heading">
+            <h2 id="timer-heading">Focus timer</h2>
+            <p class="doing-now-line">Doing Now: <strong id="doing-now-title">No task selected</strong></p>
+            <div class="timer-row">
+                <label for="duration">Duration</label>
+                <select id="duration"></select>
+                <output id="time-display" aria-live="polite">30:00</output>
+            </div>
+            <div class="timer-buttons">
+                <button type="button" id="start-btn" disabled>Start</button>
+                <button type="button" id="reset-btn">Reset</button>
+                <button type="button" id="clear-btn" disabled>Clear Doing Now</button>
+            </div>
+        </section>
+
+        <section id="list-section" aria-labelledby="list-heading">
+            <h2 id="list-heading">Tasks</h2>
+            <p id="empty-msg">No tasks yet. Add one above.</p>
+            <ul id="task-list"></ul>
+        </section>
+    </main>
+
+    <dialog id="finish-dialog" aria-labelledby="finish-question">
+        <p id="finish-question">Did you finish this task?</p>
+        <p id="finish-task-title" class="dialog-task"></p>
+        <div class="dialog-buttons">
+            <button type="button" id="finish-yes">Yes</button>
+            <button type="button" id="finish-no">No</button>
+        </div>
+    </dialog>
+</body>
+</html>
